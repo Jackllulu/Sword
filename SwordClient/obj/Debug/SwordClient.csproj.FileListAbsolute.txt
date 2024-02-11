@@ -1,0 +1,13 @@
+C:\Unity\Sword\Sword\code\Sword\SwordClient\bin\Debug\SwordClient.exe.config
+C:\Unity\Sword\Sword\code\Sword\SwordClient\bin\Debug\SwordClient.exe
+C:\Unity\Sword\Sword\code\Sword\SwordClient\bin\Debug\SwordClient.pdb
+C:\Unity\Sword\Sword\code\Sword\SwordClient\obj\Debug\SwordClient.csproj.AssemblyReference.cache
+C:\Unity\Sword\Sword\code\Sword\SwordClient\obj\Debug\SwordClient.csproj.CoreCompileInputs.cache
+C:\Unity\Sword\Sword\code\Sword\SwordClient\obj\Debug\SwordClient.exe
+C:\Unity\Sword\Sword\code\Sword\SwordClient\obj\Debug\SwordClient.pdb
+C:\Unity\Sword\Sword\code\Sword\SwordClient\bin\Debug\Prism.dll
+C:\Unity\Sword\Sword\code\Sword\SwordClient\bin\Debug\Prism.pdb
+C:\Unity\Sword\Sword\code\Sword\SwordClient\bin\Debug\Prism.xml
+C:\Unity\Sword\Sword\code\Sword\SwordClient\obj\Debug\SwordClient.csproj.CopyComplete
+C:\Unity\Sword\Sword\code\Sword\SwordClient\bin\Debug\SwordCore.dll
+C:\Unity\Sword\Sword\code\Sword\SwordClient\bin\Debug\SwordCore.pdb

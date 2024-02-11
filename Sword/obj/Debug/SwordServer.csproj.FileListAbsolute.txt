@@ -1,0 +1,17 @@
+C:\Unity\Sword\Sword\code\Sword\Sword\bin\Debug\Sword.exe.config
+C:\Unity\Sword\Sword\code\Sword\Sword\bin\Debug\Sword.exe
+C:\Unity\Sword\Sword\code\Sword\Sword\bin\Debug\Sword.pdb
+C:\Unity\Sword\Sword\code\Sword\Sword\obj\Debug\SwordServer.csproj.AssemblyReference.cache
+C:\Unity\Sword\Sword\code\Sword\Sword\obj\Debug\SwordServer.csproj.CoreCompileInputs.cache
+C:\Unity\Sword\Sword\code\Sword\Sword\obj\Debug\Sword.exe
+C:\Unity\Sword\Sword\code\Sword\Sword\obj\Debug\Sword.pdb
+C:\Unity\Sword\Sword\code\Sword\Sword\bin\Debug\EntityFramework.dll
+C:\Unity\Sword\Sword\code\Sword\Sword\bin\Debug\EntityFramework.SqlServer.dll
+C:\Unity\Sword\Sword\code\Sword\Sword\bin\Debug\EntityFramework.xml
+C:\Unity\Sword\Sword\code\Sword\Sword\bin\Debug\EntityFramework.SqlServer.xml
+C:\Unity\Sword\Sword\code\Sword\Sword\obj\Debug\SwordServer.csproj.CopyComplete
+C:\Unity\Sword\Sword\code\Sword\Sword\bin\Debug\SwordCore.dll
+C:\Unity\Sword\Sword\code\Sword\Sword\bin\Debug\SwordCore.pdb
+C:\Unity\Sword\Sword\code\Sword\Sword\obj\Debug\Sword.Migrations.InitialCreate.resources
+C:\Unity\Sword\Sword\code\Sword\Sword\obj\Debug\SwordServer.csproj.GenerateResource.cache
+C:\Unity\Sword\Sword\code\Sword\Sword\obj\Debug\Sword.Migrations.Unused.resources

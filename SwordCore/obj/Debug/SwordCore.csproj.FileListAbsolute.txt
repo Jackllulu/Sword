@@ -1,0 +1,6 @@
+C:\Unity\Sword\Sword\code\Sword\SwordCore\bin\Debug\SwordCore.dll
+C:\Unity\Sword\Sword\code\Sword\SwordCore\bin\Debug\SwordCore.pdb
+C:\Unity\Sword\Sword\code\Sword\SwordCore\obj\Debug\SwordCore.csproj.AssemblyReference.cache
+C:\Unity\Sword\Sword\code\Sword\SwordCore\obj\Debug\SwordCore.csproj.CoreCompileInputs.cache
+C:\Unity\Sword\Sword\code\Sword\SwordCore\obj\Debug\SwordCore.dll
+C:\Unity\Sword\Sword\code\Sword\SwordCore\obj\Debug\SwordCore.pdb
