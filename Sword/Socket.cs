@@ -25,8 +25,6 @@ namespace Sword
             thread.Start();
             Thread reply = new Thread(new ThreadStart(Reply));
             reply.Start();
-
-            Console.ReadKey();
         }
         public void Reply()
         {

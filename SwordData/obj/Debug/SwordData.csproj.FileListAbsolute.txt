@@ -7,3 +7,12 @@ C:\Unity\Sword\Sword\code\Sword\SwordData\obj\Debug\SwordData.pdb
 C:\Unity\Sword\Sword\code\Sword\SwordData\bin\Debug\SwordCore.dll
 C:\Unity\Sword\Sword\code\Sword\SwordData\bin\Debug\SwordCore.pdb
 C:\Unity\Sword\Sword\code\Sword\SwordData\obj\Debug\SwordData.csproj.CopyComplete
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\bin\Debug\SwordData.dll
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\bin\Debug\SwordData.pdb
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\bin\Debug\SwordCore.dll
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\bin\Debug\SwordCore.pdb
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\obj\Debug\SwordData.csproj.AssemblyReference.cache
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\obj\Debug\SwordData.csproj.CoreCompileInputs.cache
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\obj\Debug\SwordData.csproj.CopyComplete
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\obj\Debug\SwordData.dll
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\obj\Debug\SwordData.pdb

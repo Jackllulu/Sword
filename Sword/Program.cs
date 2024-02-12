@@ -15,8 +15,11 @@ namespace Sword
 
         static void Main(string[] args)
         {
-            Singleton<SwordSocket>.Instance.Initialize();
 
+            Singleton<SwordSocket>.Instance.Initialize();
+            Singleton<ConfigurationManager>.Instance.Initialize();
+
+            Console.ReadKey();
         }
 
     }

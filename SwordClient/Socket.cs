@@ -32,9 +32,7 @@ namespace SwordClient
             Thread recievethread = new Thread(new ThreadStart(ReceiveProcess));
             recievethread.Start();
 
-
             string content = "0,0,0,333,password,";
-
             // 用Encoding.UTF8.GetBytes()，将要发送的内容转化为字节
             byte[] data = Encoding.UTF8.GetBytes(content);
 
@@ -46,10 +44,7 @@ namespace SwordClient
                 Console.WriteLine(sendCount);
                 Thread.Sleep(300);
             }
-            while (true)
-            {
 
-            }
         }
         public void ReceiveProcess()
         {

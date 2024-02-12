@@ -48,9 +48,11 @@
     <Compile Include="Class1.cs" />
     <Compile Include="IRole.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rank.cs" />
+    <Compile Include="Roles\Role.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Roles\" />
+    <Folder Include="Enum\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

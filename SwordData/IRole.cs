@@ -17,6 +17,7 @@ namespace SwordData
         int Skill {  get; }
         int Critical { get; }  
         Camp RoleCamp { get; }
+        Rank RoleRank { get; }
 
     }
 }
