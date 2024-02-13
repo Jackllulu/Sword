@@ -14,12 +14,12 @@ namespace Sword.Login
         {
             IDs=DB.GetAllAccountIds();
         }
-        public static bool LoginAccount(string username,string password)
+        public static bool LoginAccount(string username,string password,out long id)
         {
-            long id = 0;
+            id = 0;
             try
             {
-                bool? res= DB.AccountLogin(username, password);
+                bool? res= DB.AccountLogin(username, password, out id);
                 if(res==null)    //新建
                 {
                     return true;
@@ -40,12 +40,10 @@ namespace Sword.Login
                 return false;
             }
         }
-        public static Asset QueryAsset(string ID)
+        public static Asset QueryAsset(long id)
         {
-            long id = 0;
             try
             {
-                id=Convert.ToInt64(ID);
                 Asset asset = DB.QueryAsset(id);
 
                 return asset;
@@ -55,6 +53,24 @@ namespace Sword.Login
 
             }
             return null;
+        }
+        public static bool LogoffAccount(long id)
+        {
+            try
+            {
+                if (DB.AccountLogoff(id))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

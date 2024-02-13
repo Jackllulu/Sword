@@ -24,7 +24,7 @@ namespace Sword.DataBase
             }
             return null;
         }
-        public static bool? AccountLogin(string username,string password="")
+        public static bool? AccountLogin(string username,string password,out long id)
         {
             try
             {
@@ -36,6 +36,7 @@ namespace Sword.DataBase
                     if (account.Online)
                     {
                         Console.WriteLine("Login Success!");
+                        id= account.ID;
                         return false;
                     }
                     else
@@ -43,21 +44,48 @@ namespace Sword.DataBase
                         Console.WriteLine("Login Fail! Please Check");
                         account.Online = true;
                         db.SaveChanges();
+                        id = account.ID;
                         return true;
                     }
                 }
                 else
                 {
-                    CreateAccount(username, password);
+                    CreateAccount(username, password,out id);
                     return null;
                 }
             }
             catch (Exception ex)
             {
+                id = 0;
                 return false;
             }
         }
-        public static bool CreateAccount(string username,string password)
+
+        public static bool AccountLogoff(long id)
+        {
+            try
+            {
+                AccountDBContext db = new AccountDBContext();
+                var accounts = db.Accounts.Where(l => l.ID==id);
+                if(accounts.Any())
+                {
+                    Account account= accounts.FirstOrDefault();
+                    if (account.Online)
+                    {
+                        account.Online = false;
+                        db.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                id = 0;
+                return false;
+            }
+        }
+
+        public static bool CreateAccount(string username,string password,out long id)
         {
             try
             {
@@ -80,13 +108,15 @@ namespace Sword.DataBase
                 assetDB.Assets.Add(asset);
                 assetDB.SaveChanges();
 
+                id=account.ID;
                 return true;
             }
             catch (Exception ex)
             {
 
-                return false;
             }
+            id = 0;
+            return false;
 
         }
         public static List<Account> GetAllAccounts()

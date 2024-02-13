@@ -14,6 +14,11 @@ namespace Sword
 {
     public class SwordSocket
     {
+        // Reply Code   header + Parameters + CE
+        //  0:  ERROR , information
+        //  1:  LoginSuccess , AccountID
+
+
         public List<Socket> socketServerManager;
 
         public SwordSocket() { }
@@ -85,7 +90,7 @@ namespace Sword
         /// <summary>
         /// 信息处理
         /// 0：登录
-        /// 1：数据修改
+        /// 1：注销
         /// 2：操作
         /// </summary>
         /// <param name="mes"></param>
@@ -94,26 +99,37 @@ namespace Sword
         {
             if(mes!=null||mes.Length!=0)
             {
+                long logId;
+
                 string[] dataArray=mes.Split(',');
                 string id = dataArray[0];
                 string certify = dataArray[1];
                 switch(dataArray[2])
                 {
                     case "0":
-                        string logId = dataArray[3];
+                        string username = dataArray[3];
                         string password = dataArray[4];
                         
-                        if(Login.Login.LoginAccount(logId, password))
+                        if(Login.Login.LoginAccount(username, password,out logId))
                         {
                             Asset asset= Login.Login.QueryAsset(logId);
-                            return string.Empty;
+                            return $"1,{logId},CE,";
                         }
                         else
                         {
-                            return "WARN: this account is still online!";
+                            return "0,WARN: this account is still online!,CE,";
                         }
-                        break;
-
+                    case "1":
+                        string strlogId = dataArray[3];
+                        logId = Convert.ToInt64(strlogId);
+                        if (Login.Login.LogoffAccount(logId))
+                        {
+                            return "2,,CE";
+                        }
+                        else
+                        {
+                            return "0,Logoff Failed!,CE";
+                        }
                     default:
                         break;
                 }
