@@ -17,6 +17,8 @@ namespace Sword
         // Reply Code   header + Parameters + CE
         //  0:  ERROR , information
         //  1:  LoginSuccess , AccountID
+        //  2:  LogoffSuccess
+        //  3:  AssetUpdate , AccountID , Coins , Dimends , Level
 
 
         public List<Socket> socketServerManager;
@@ -113,7 +115,7 @@ namespace Sword
                         if(Login.Login.LoginAccount(username, password,out logId))
                         {
                             Asset asset= Login.Login.QueryAsset(logId);
-                            return $"1,{logId},CE,";
+                            return $"1,{logId},CE,"+$"3,{asset.ID},{asset.Coins},{asset.Dimends},{asset.Level},CE,";
                         }
                         else
                         {

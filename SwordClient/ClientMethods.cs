@@ -15,9 +15,9 @@ namespace SwordClient
         {
             Singleton<SwordClientSocket>.Instance.Initialize();
         }
-        public static bool LoginAccount(string username,string password)
+        public static bool LoginAccount()
         {
-            if(AccountManager.LoginAccount(username, password))
+            if(AccountManager.LoginAccount())
             {
                 int i = 0;
                 do
@@ -34,6 +34,29 @@ namespace SwordClient
                 return false;
             }
             return false;
+        }
+        public static bool LogoffAccount()
+        {
+            if (AccountManager.LogoffAccount())
+            {
+                int i = 0;
+                do
+                {
+                    Thread.Sleep(100);
+                    if (!AccountManager.IsOnline)
+                    {
+                        return true;
+                    }
+                    i++;
+                }
+                while (i > 20);
+            }
+
+                return false;
+        }
+        public static void SetAccountMes(string username, string password)
+        {
+            AccountManager.SetAccountMes(username, password);
         }
     }
 }

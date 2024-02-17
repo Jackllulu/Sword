@@ -65,25 +65,50 @@ namespace SwordClient
         }
         public void Process(string mes)
         {
-            string[] content = mes.Split(',');
-            switch(content[0])
+            string[] rawcontents = mes.Split(',');
+            List<List<string>> contents= new List<List<string>>();
+            List<string> onecontent = new List<string>();
+            for(int i = 0; i < rawcontents.Length-1; i++)
             {
-                case "0":
-                    break;
-
-                case "1":
-                    long id =Convert.ToInt64(content[1]);
-                    AccountManager.AccountID = id;
-                    AccountManager.IsOnline = true;
-                    break;
-
-                case "2":
-                    AccountManager.IsOnline= false;
-                    break;
-
-                default:
-                    break;
+                onecontent.Add(rawcontents[i]);
+                if (rawcontents[i] == "CE")
+                {
+                    contents.Add(onecontent);
+                    onecontent = new List<string>();
+                }
             }
+            contents.Add(onecontent);
+
+            foreach(List<string> content in contents)
+            {
+                switch (content[0])
+                {
+                    case "0":
+                        break;
+
+                    case "1":
+                        long id = Convert.ToInt64(content[1]);
+                        AccountManager.AccountID = id;
+                        AccountManager.IsOnline = true;
+                        break;
+
+                    case "2":
+                        AccountManager.IsOnline = false;
+                        break;
+
+                    case "3":
+                        Asset asset = AssetManager.AccountAsset;
+                        asset.ID= Convert.ToInt64(content[1]);
+                        asset.Coins = Convert.ToInt32(content[2]);
+                        asset.Dimends = Convert.ToInt32(content[3]);
+                        asset.Level = Convert.ToInt32(content[4]);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+
         }
     }
 }
