@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SwordCore;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -35,13 +36,13 @@ namespace Sword.DataBase
                     Account account= accounts.FirstOrDefault();
                     if (account.Online)
                     {
-                        Console.WriteLine("Login Success!");
+                        Console.WriteLine("Login Fail! Please Check");
                         id= account.ID;
                         return false;
                     }
                     else
                     {
-                        Console.WriteLine("Login Fail! Please Check");
+                        Console.WriteLine("Login Success!");
                         account.Online = true;
                         db.SaveChanges();
                         id = account.ID;
@@ -78,8 +79,9 @@ namespace Sword.DataBase
                 }
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
+                Log.Error($"Logoff Error,ID :{id} ", e);
                 id = 0;
                 return false;
             }

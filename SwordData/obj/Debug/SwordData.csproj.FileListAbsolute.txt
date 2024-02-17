@@ -16,3 +16,5 @@ C:\Unity\Sword\Sword\code\Git\Sword\SwordData\obj\Debug\SwordData.csproj.CoreCom
 C:\Unity\Sword\Sword\code\Git\Sword\SwordData\obj\Debug\SwordData.csproj.CopyComplete
 C:\Unity\Sword\Sword\code\Git\Sword\SwordData\obj\Debug\SwordData.dll
 C:\Unity\Sword\Sword\code\Git\Sword\SwordData\obj\Debug\SwordData.pdb
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\bin\Debug\NLog.dll
+C:\Unity\Sword\Sword\code\Git\Sword\SwordData\bin\Debug\NLog.xml

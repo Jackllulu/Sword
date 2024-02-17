@@ -27,3 +27,4 @@ C:\Unity\Sword\Sword\code\Git\Sword\SwordClient\obj\Debug\SwordClient.dll
 C:\Unity\Sword\Sword\Assets\PlugIns\SwordClient.dll.config
 C:\Unity\Sword\Sword\Assets\PlugIns\SwordClient.dll
 C:\Unity\Sword\Sword\Assets\PlugIns\SwordClient.pdb
+C:\Unity\Sword\Sword\Assets\PlugIns\NLog.config

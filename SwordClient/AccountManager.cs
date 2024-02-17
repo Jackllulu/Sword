@@ -9,7 +9,7 @@ namespace SwordClient
 {
     public static class AccountManager
     {
-        public static long AccountID { get; set; } = 0;
+        public static long AccountID { get; set; }
         public static string Username { get; set; } = string.Empty;
         public static string Password { get; set;} = string.Empty;
         public static bool IsOnline { get; set; } = false;
@@ -20,12 +20,13 @@ namespace SwordClient
             string password = Password;
             try
             {
-                Singleton<SwordClientSocket>.Instance.Send($"0,0,0,{username},{password},CE");
+                Singleton<SwordClientSocket>.Instance.Send($"0,0,0,{username},{password},CE,");
 
                 return true;
             }
-            catch 
-            { 
+            catch(Exception e)
+            {
+                Log.Error("LoginAccount Error ", e);
                 return false; 
             }
         }
@@ -33,12 +34,13 @@ namespace SwordClient
         {
             try
             {
-                Singleton<SwordClientSocket>.Instance.Send($"0,0,1,{AccountID},CE");
+                Singleton<SwordClientSocket>.Instance.Send($"0,0,1,{AccountID},{Username},{Password},CE,");
 
                 return true;
             }
-            catch
+            catch (Exception e)
             {
+                Log.Error("LogoffAccount Error ", e);
                 return false;
             }
         }

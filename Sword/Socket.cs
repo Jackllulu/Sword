@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Runtime.Remoting.Contexts;
 using Sword.Login;
 using Sword.DataBase;
+using SwordCore;
+using System.Diagnostics;
 
 namespace Sword
 {
@@ -22,10 +24,11 @@ namespace Sword
 
 
         public List<Socket> socketServerManager;
-
+        private byte[] _buffer;
         public SwordSocket() { }
         public void Initialize()
         {
+            _buffer = new byte[1024];
             Login.Login.InitializeLogins();
             socketServerManager = new List<Socket>();
             Thread thread = new Thread(new ThreadStart(SocketListen));
@@ -42,17 +45,22 @@ namespace Sword
                 foreach (Socket socket in socketServerManager)
                 {
                     // 设置接收字节的容器，容量大小为1024个字节，客户端发来的字节都存在这里
-                    byte[] buffer = new byte[1024];
-                    int length = socket.Receive(buffer);
+                    _buffer = null;
+                    _buffer = new byte[1024];
+                    int length = socket.Receive(_buffer);
 
                     if (length == 0)
                     {
                         continue;
                     }
                     // 用Encoding.UTF8.Getstring()，将收到的实际长度的字节转化为string类型
-                    string mes = Encoding.UTF8.GetString(buffer, 0, length);
+                    string mes = Encoding.UTF8.GetString(_buffer, 0, length);
                     Console.WriteLine("收到了" + length + "个字节，内容为：" + mes);
                     string replyContent = Process(mes);
+                    if(replyContent == null)
+                    {
+                        continue;
+                    }
                     byte[] data = Encoding.UTF8.GetBytes(replyContent);
                     socket.Send(data);
                 }
@@ -84,6 +92,8 @@ namespace Sword
             {
                 Socket serverManager = server.Accept();
                 socketServerManager.Add(serverManager);
+
+                Log.Debug($"Server Connected! Now Server Count is {socketServerManager.Count}");
                 Thread.Sleep(100);
             }
 
@@ -101,9 +111,14 @@ namespace Sword
         {
             if(mes!=null||mes.Length!=0)
             {
+                
                 long logId;
 
                 string[] dataArray=mes.Split(',');
+                if(dataArray.Length<3) 
+                {
+                    return null;
+                }
                 string id = dataArray[0];
                 string certify = dataArray[1];
                 switch(dataArray[2])
@@ -126,18 +141,17 @@ namespace Sword
                         logId = Convert.ToInt64(strlogId);
                         if (Login.Login.LogoffAccount(logId))
                         {
-                            return "2,,CE";
+                            return "2,,CE,";
                         }
                         else
                         {
-                            return "0,Logoff Failed!,CE";
+                            return "0,Logoff Failed!,CE,";
                         }
                     default:
                         break;
                 }
             }
-            string replyMes = "随便写点";
-            return replyMes;
+            return null;
         }
     }
 }

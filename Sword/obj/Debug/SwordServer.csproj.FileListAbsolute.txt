@@ -79,3 +79,6 @@ C:\Unity\Sword\Sword\code\Git\Sword\Sword\bin\Debug\System.Security.AccessContro
 C:\Unity\Sword\Sword\code\Git\Sword\Sword\bin\Debug\System.Security.Cryptography.Xml.xml
 C:\Unity\Sword\Sword\code\Git\Sword\Sword\bin\Debug\System.Security.Principal.Windows.xml
 C:\Unity\Sword\Sword\code\Git\Sword\Sword\bin\Debug\System.Text.Encoding.CodePages.xml
+C:\Unity\Sword\Sword\code\Git\Sword\Sword\bin\Debug\NLog.dll
+C:\Unity\Sword\Sword\code\Git\Sword\Sword\bin\Debug\NLog.xml
+C:\Unity\Sword\Sword\code\Git\Sword\Sword\bin\Debug\NLog.config

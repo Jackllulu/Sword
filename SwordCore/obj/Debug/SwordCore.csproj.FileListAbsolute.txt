@@ -10,3 +10,7 @@ C:\Unity\Sword\Sword\code\Git\Sword\SwordCore\obj\Debug\SwordCore.csproj.Assembl
 C:\Unity\Sword\Sword\code\Git\Sword\SwordCore\obj\Debug\SwordCore.csproj.CoreCompileInputs.cache
 C:\Unity\Sword\Sword\code\Git\Sword\SwordCore\obj\Debug\SwordCore.dll
 C:\Unity\Sword\Sword\code\Git\Sword\SwordCore\obj\Debug\SwordCore.pdb
+C:\Unity\Sword\Sword\code\Git\Sword\SwordCore\bin\Debug\NLog.dll
+C:\Unity\Sword\Sword\code\Git\Sword\SwordCore\bin\Debug\NLog.xml
+C:\Unity\Sword\Sword\code\Git\Sword\SwordCore\obj\Debug\SwordCore.csproj.CopyComplete
+C:\Unity\Sword\Sword\code\Git\Sword\SwordCore\bin\Debug\NLog.config

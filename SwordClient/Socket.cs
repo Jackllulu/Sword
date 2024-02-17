@@ -32,27 +32,29 @@ namespace SwordClient
             Thread recievethread = new Thread(new ThreadStart(ReceiveProcess));
             recievethread.Start();
 
-            string content = "0,0,0,333,password,";
+            //string content = "0,0,0,333,password,CE,";
             // 用Encoding.UTF8.GetBytes()，将要发送的内容转化为字节
-            byte[] data = Encoding.UTF8.GetBytes(content);
+            //byte[] data = Encoding.UTF8.GetBytes(content);
 
             // 发送字节
 
-            for(int i = 0; i < 3; i++)
-            {
-                int sendCount= _client.Send(data);
-                Console.WriteLine(sendCount);
-                Thread.Sleep(300);
-            }
-
+            //for(int i = 0; i < 3; i++)
+            //{
+            //    int sendCount= _client.Send(data);
+            //    Console.WriteLine(sendCount);
+            //    Thread.Sleep(300);
+            //}
         }
+
         public void ReceiveProcess()
         {
+            Send("ReceiveProcess Start");
             while (true)
             {
                 byte[] reply = new byte[1024];
-                _client.Receive(reply);
-                string replymes = Encoding.UTF8.GetString(reply);
+                
+                int length=_client.Receive(reply);
+                string replymes = Encoding.UTF8.GetString(reply,0,length);
                 Process(replymes);
                 Console.WriteLine(replymes);
                 Thread.Sleep(100);
@@ -66,9 +68,20 @@ namespace SwordClient
         public void Process(string mes)
         {
             string[] rawcontents = mes.Split(',');
+            Send($"Received {mes},CE,");
+            if (rawcontents == null || rawcontents.Length <= 1)
+            {
+                Send($"Quick return,CE,");
+                return;
+            }
+            //else if (rawcontents.LastOrDefault() != "CE")
+            //{
+            //    return;
+            //}
             List<List<string>> contents= new List<List<string>>();
             List<string> onecontent = new List<string>();
-            for(int i = 0; i < rawcontents.Length-1; i++)
+            Send($"Start Split,CE,");
+            for (int i = 0; i < rawcontents.Length-1; i++)
             {
                 onecontent.Add(rawcontents[i]);
                 if (rawcontents[i] == "CE")
@@ -78,30 +91,40 @@ namespace SwordClient
                 }
             }
             contents.Add(onecontent);
-
-            foreach(List<string> content in contents)
+            Send($"contents count :{contents.Count},CE,");
+            foreach (List<string> content in contents)
             {
+                if (content == null || content.Count == 0)
+                {
+                    continue;
+                }
                 switch (content[0])
                 {
                     case "0":
+                        Send("Received 0,CE,");
                         break;
 
                     case "1":
                         long id = Convert.ToInt64(content[1]);
-                        AccountManager.AccountID = id;
-                        AccountManager.IsOnline = true;
+                        Send("Received 1,CE,");
+                        ClientMethods.SetAccountId(id);
+                        ClientMethods.SetAccountOnline(true);
                         break;
 
                     case "2":
-                        AccountManager.IsOnline = false;
+                        Send("Received 2,CE,");
+                        ClientMethods.SetAccountOnline(false);
                         break;
 
                     case "3":
+                        Send("Received 3,CE,");
                         Asset asset = AssetManager.AccountAsset;
+                        Send("GetAsset,CE,");
                         asset.ID= Convert.ToInt64(content[1]);
                         asset.Coins = Convert.ToInt32(content[2]);
                         asset.Dimends = Convert.ToInt32(content[3]);
                         asset.Level = Convert.ToInt32(content[4]);
+                        Send("SetAsset,CE,");
                         break;
 
                     default:

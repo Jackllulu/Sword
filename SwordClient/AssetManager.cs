@@ -10,13 +10,14 @@ namespace SwordClient
 {
     public static class AssetManager
     {
-        public static Asset AccountAsset 
-        { 
-            get=>Singleton<Asset>.Instance; 
-        }
+        public static Asset AccountAsset
+        {
+            get;
+            set;
+        }= new Asset();
     }
 
-    public class Asset
+    public class Asset:Singleton<Asset>
     {
         public long ID { get; set; } = 0;
         public int Coins { get; set; } = 0;
